@@ -39,6 +39,9 @@ private:
      */
     double chargeMensuelleEmployes() const;
 
+    void afficheRapportEmploye(const rapport &r, std::ostream &ost) const;
+    void afficheRapport() const;
+
     /**
      * @brief Tableau dynamique contenant les employés du gestionnaire
      */

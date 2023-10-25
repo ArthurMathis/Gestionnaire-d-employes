@@ -55,4 +55,30 @@ private :
     std::string d_titre;
 };
 
+/**
+ * @brief Class enfant de rapport permettant de réaliser un rapport textuel
+ */
+class rapportHTML : public rapport{
+public :
+    rapportHTML(const std::string &chaine);
+
+    /**
+     * @brief Méthode affichant dans un flux de sortie le titre du rapport
+     * @param ost Le flux de sortie
+     */
+    void imprimeTitre(std::ostream &ost) const override;
+    /**
+     * @brief Méthode affichant dans un flux de sortie le nom et le salaire de l'employe
+     * @param e
+     * @param ost
+     */
+    void imprimeEmploye(const employe &e, std::ostream &ost) const override;
+
+private :
+    /**
+     * @brief Titre du rapport
+     */
+    std::string d_titre;
+};
+
 #endif //TP2_RAPPORT_H
