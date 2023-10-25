@@ -98,6 +98,14 @@ void gestionnaireEmployes::afficheRapportEmploye(const rapport &r, std::ostream 
         ost<<endl;
     }
 }
+
+inline void initHTML(std::ostream &ost){
+    ost<<"<!DOCTYPE html>"<<endl
+    <<"<html>"<<endl<<"<head>"<<endl
+    <<"<meta charset=\"utf-8\">"<<endl
+    <<"</head>"<<endl<<"<body>"<<endl;
+}
+
 void gestionnaireEmployes::afficheRapport() const{
     int choix;
     do{
@@ -132,7 +140,9 @@ void gestionnaireEmployes::afficheRapport() const{
         std::ofstream of{"../" + c + ".html"};
         if(!of) return;
 
+        initHTML(of);
         afficheRapportEmploye(r, of);
+        of<<endl<<"</body>"<<endl<<"</html>";
         cout<<"Rapport généré ! "<<endl;
     }
 
